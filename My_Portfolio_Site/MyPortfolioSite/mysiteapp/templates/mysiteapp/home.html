@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+        @keyframes fadeInUp {
+            from {
+                transform: translate3d(0,40px,0)
+                }
+
+            to {
+                transform: translate3d(0,0,0);
+                opacity: 1
+                }
+            }
+        @-webkit-keyframes fadeInUp {
+            from {
+                transform: translate3d(0,40px,0)
+                }
+
+            to {
+                transform: translate3d(0,0,0);
+                opacity: 1
+                }
+            }
+
+            .animated {
+                animation-duration: 1s;
+                animation-fill-mode: both;
+                -webkit-animation-duration: 1s;
+                -webkit-animation-fill-mode: both
+            }
+
+            .animatedFadeInUp {
+                opacity: 0
+            }
+
+            .fadeInUp {
+                opacity: 0;
+                animation-name: fadeInUp;
+                -webkit-animation-name: fadeInUp;
+            }
+
+            /* .main-intro{
+                height: 500px;
+                background-color: rgb(34, 34, 34);
+                /* background-image: url("");
+                background-repeat: no-repeat;
+                background-size: cover; 
+            }
+
+            .heading
+            {
+                color: whitesmoke;
+                text-align: center;
+            }
+
+            
+
+            .demo-sec{
+                height: 500px;
+            }
+
+            #about{
+                color: rgb(122, 122, 122);
+                text-align: center;
+            } */
+
+            
+
+            body, html {
+            height: 100%;
+            margin: 0;
+
+            }
+
+            html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+}
+
+            .bg {
+            /* The image used */
+            background-image: url("https://cutewallpaper.org/21/desk-background-pictures/desk-background.jpg");
+            /* background-image: url('https://codemyui.com/wp-content/uploads/2019/11/Loop-the-loop-bike-loader-in-CSS.gif'); */
+            
+
+            /* Full height */
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.95;
+            }
+
+            .main-text{
+                /* text-align: center; */
+                vertical-align: center;
+                top: 40%;
+                position:absolute;
+                left: 0%;
+                width: 100%;
+
+            }
+
+            .border1{
+                /* padding: 10px; */
+                color: whitesmoke;
+                /* background-color: whitesmoke; */
+                font-size: 35px;
+                font-weight: bolder;
+                color: rgb(255, 123, 0);
+            }
+            
+            .name{
+                color: rgb(255, 123, 0);
+            }
+
+            .sub-head{
+                font-size: 2.4vw;
+                color: gray;
+                font-weight: bold;
+                /* margin: 20px; */
+            }
+
+            #about{
+                text-align: center;
+                padding: 10px;
+                /* border-bottom: 3px solid orange; */
+
+            }
+
+            .about-header{
+                /* text-align: center; */
+                font-weight: bold;
+            }
+
+            .about-section{
+                background-color: lightgray;
+            }
+            
+            .work-section{
+                background-color: rgb(44, 44, 44);
+                color: whitesmoke;
+            }
+
+            .context{
+                color: rgb(75, 75, 75);
+            }
+
+            .context1{
+                color: lightgrey;
+            }
+
+            a:hover{
+                background-color: blue;
+
+            }
+
+/* 
+            .content {
+      width: 94%;
+      margin: 4em auto;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: justify;
+} */
+
+
+
+nav {
+      position: fixed;
+      width: 100%;
+      /* line-height: 60px; */
+      z-index: 9999;
+}
+
+nav ul {
+      /* line-height: 60px; */
+      list-style: none;
+      background-color: rgba(0, 0, 0, 0);
+      
+      color: darkgrey;
+      padding: 0;
+      text-align: center;
+      margin: 0;
+      padding-right: 40px;
+      transition: 1s;
+}
+
+nav.black ul {
+      background: black;
+      z-index: 9999;
+      
+}
+
+nav ul li {
+      display: inline-block;
+      padding: 16px 40px;;
+}
+
+nav ul li a {
+      text-decoration: none;
+      color: darkgray;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+}
+
+.menu-icon {
+      line-height: 60px;
+      width: 100%;
+      background: black;
+      text-align: right;
+      box-sizing: border-box;
+      padding: 15px 24px;
+      cursor: pointer;
+      color: #fff;
+      display: none;
+}
+
+        </style>  
+
+
+        
+    </head>
+    <body>
+        <div class="wrapper">
+        <div class="bg">
+            <nav>
+                <div class="menu-icon">
+                   <i class="fa fa-bars fa-2x"></i>
+                </div>
+                <!-- <div class="logo">
+                   LOGO
+                </div> -->
+                <div class="menu">
+                   <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">About</a></li>
+                      <li><a href="#">Blog</a></li>
+                      <li><a href="#">Contact</a></li>
+                      <li><a href="#">Contact</a></li>
+                      <li><a href="#">Contact</a></li>
+                   </ul>
+                </div>
+             </nav>
+            <div class="main-text">
+                <div class="container">
+                <span class="border1">Hello, I'm <span class="name animated animatedFadeInUp fadeInUp" style="animation-delay: 0.3s;">Shivesh Jha</span></span><br>
+                <span class="sub-head">I'm a Full Stack Web Developer and Data Science enthusiast</span>
+                <a href="#about1" ><p class="p-2 mt-3 button12 " style="border: 2px solid rgb(255, 123, 0) ;width: 105px;color: rgb(255, 123, 0);border-radius: 5px;;text-decoration: none;">Know more</p></a>
+                </div>
+            </div>
+            
+        </div>
+         <!-- <div class="container-fluid main-intro">
+
+            <h2 class="heading md-5 pt-4 ">Hello, I am <span class="name1 animated animatedFadeInUp fadeInUp" style="animation-delay: 0.3s;">Shivesh Jha</span><br>
+                A Full Stack Web Developer
+            </h2><br>
+            <p style="font-size:2vw;color: whitesmoke;">Use the "vw" unit when sizing the text. 10vw will set the size to 10% of the viewport width.</p>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav><br>
+
+             <div class="demo-sec"></div> -->
+            <div>
+            <!-- <h2 id="about">About Section</h2><br> -->
+            <div class="row about-section p-5" style="scroll-behavior: smooth;  ">
+                <div class="col-12 col-md-4">
+ 
+                    <!-- <img src="https://i.pinimg.com/originals/2b/c5/46/2bc5462dafc875b4542cfc9d9b7d7b45.jpg" width="90%" style="margin: 20px;">  -->
+                </div>
+                <div class="col-12 col-md-8" id='about1'>
+                    <h3 class="about-header">About</h3>
+                    <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br>
+                    <p class="context">My name is Rohan, I'm a Web Developer. Currently I'm working at Aapka Sahara Foundation as a Website Development Manager simultaneously being the Tech Head at DJLIT</p><br>
+
+
+                    <h3 class="about-header">Contact Details</h3>
+                    <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br>
+                    <p class="context">My name is Rohan, I'm a Web Developer. Currently I'm working at Aapka Sahara Foundation as a Website Development Manager simultaneously being the Tech Head at DJLIT</p>
+
+                    
+                </div>
+                <!-- <div class="col-12 col-md-4">
+                    <h3 class="about-header">Web Development</h3>
+                    
+                </div> -->
+
+            </div>
+            </div>
+
+            <div>
+                <!-- <h2 id="about">About Section</h2><br> -->
+                <div class="row work-section p-5">
+                    <div class="col-12 col-md-4">
+                        <center class="m-3">
+                        <h4 >Work</h4>
+                        <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br>
+                    </center>
+                        <!-- <img src="https://i.pinimg.com/originals/2b/c5/46/2bc5462dafc875b4542cfc9d9b7d7b45.jpg" width="90%" style="margin: 20px;">  -->
+                    </div>
+                    <div class="col-12 col-md-8" id='about1'>
+                        <h3 class="about-header mb-2">Talent Serve</h3>
+                        <!-- <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br> -->
+                        <!-- <h6 style="font-style: italic;font-family: Verdana, Geneva, Tahoma, sans-serif;color: gray;">Product Developer</h6> -->
+                        <p class="context1" style="margin-bottom: 10px;">Executive Band (Web Development Manager)• July 2020 - Present</p>
+                        <p>Revamped the complete website for the NGO and constantly maintained it making it SEO friendly, compatible with mobile devices and made it possible to implement new features on the website.</p><br>
+    
+    
+                        <h3 class="about-header mb-2">Talent Serve</h3>
+                        <!-- <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br> -->
+                        <!-- <h6 style="font-style: italic;font-family: Verdana, Geneva, Tahoma, sans-serif;color: gray;">Product Developer</h6> -->
+                        <p class="context1" style="margin-bottom: 10px;">Executive Band (Web Development Manager)• July 2020 - Present</p>
+                        <p>Revamped the complete website for the NGO and constantly maintained it making it SEO friendly, compatible with mobile devices and made it possible to implement new features on the website.</p><br>
+
+                        <h3 class="about-header mb-2">Talent Serve</h3>
+                        <!-- <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br> -->
+                        <!-- <h6 style="font-style: italic;font-family: Verdana, Geneva, Tahoma, sans-serif;color: gray;">Product Developer</h6> -->
+                        <p class="context1" style="margin-bottom: 10px;">Executive Band (Web Development Manager)• July 2020 - Present</p>
+                        <p>Revamped the complete website for the NGO and constantly maintained it making it SEO friendly, compatible with mobile devices and made it possible to implement new features on the website.</p><br>
+
+                        <h3 class="about-header mb-2">Talent Serve</h3>
+                        <!-- <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br> -->
+                        <!-- <h6 style="font-style: italic;font-family: Verdana, Geneva, Tahoma, sans-serif;color: gray;">Product Developer</h6> -->
+                        <p class="context1" style="margin-bottom: 10px;">Executive Band (Web Development Manager)• July 2020 - Present</p>
+                        <p>Revamped the complete website for the NGO and constantly maintained it making it SEO friendly, compatible with mobile devices and made it possible to implement new features on the website.</p><br>
+    
+                        
+                    </div>
+                    <!-- <div class="col-12 col-md-4">
+                        <h3 class="about-header">Web Development</h3>
+                        
+                    </div> -->
+    
+                </div>
+                </div>
+
+        </div>
+
+    </div>
+
+
+       <script> 
+        $(document).ready(function() {
+            $(".menu-icon").on("click", function() {
+                  $("nav ul").toggleClass("showing");
+            });
+      });
+
+      // Scrolling Effect
+
+      $(window).on("scroll", function() {
+            if($(window).scrollTop()) {
+                  $('nav').addClass('black');
+            }
+
+            else {
+                  $('nav').removeClass('black');
+            }
+      })
+        </script>
+        
+    </body>
+</html>

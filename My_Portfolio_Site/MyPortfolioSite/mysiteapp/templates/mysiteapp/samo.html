@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Responsive Sticky Navbar</title>
+
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Amiri' rel='stylesheet'>
+
+      <style>
+          @keyframes fadeInUp {
+            from {
+                transform: translate3d(0,40px,0)
+                }
+
+            to {
+                transform: translate3d(0,0,0);
+                opacity: 1
+                }
+            }
+        @-webkit-keyframes fadeInUp {
+            from {
+                transform: translate3d(0,40px,0)
+                }
+
+            to {
+                transform: translate3d(0,0,0);
+                opacity: 1
+                }
+            }
+
+            .animated {
+                animation-duration: 1s;
+                animation-fill-mode: both;
+                -webkit-animation-duration: 1s;
+                -webkit-animation-fill-mode: both
+            }
+
+            .animatedFadeInUp {
+                opacity: 0
+            }
+
+            .fadeInUp {
+                opacity: 0;
+                animation-name: fadeInUp;
+                -webkit-animation-name: fadeInUp;
+            }
+
+
+            /* .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 360px;
+    height: 400px;
+    background: #000;
+} */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  
+  color: black;
+}
+
+.flip-card-back {
+  background-color: rgb(141, 141, 141);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+
+          html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: 'Montserrat', sans-serif;
+                /* font-weight: lighter; */
+            }
+
+            header {
+                width: 100%;
+                height: 100vh;
+                background: url(https://cutewallpaper.org/21/desk-background-pictures/desk-background.jpg) no-repeat 50% 50%;
+                background-size: cover;
+            }
+
+            .content {
+                width: 94%;
+                margin: 4em auto;
+                font-size: 20px;
+                line-height: 30px;
+                text-align: justify;
+            }
+
+            /* .logo {
+                line-height: 60px;
+                position: fixed;
+                float: left;
+                margin: 16px 46px;
+                color: #fff;
+                font-weight: bold;
+                font-size: 20px;
+                letter-spacing: 2px;
+            } */
+
+            nav {
+                position: fixed;
+                width: 100%;
+                /* line-height: 60px; */
+                z-index: 2;
+
+            }
+
+            nav ul {
+                /* line-height: 60px; */
+                list-style: none;
+                /* background: rgba(0, 0, 0, 0); */
+                overflow: hidden;
+                color: darkgray;
+                padding: 0;
+                text-align: center;
+                margin: 0;
+                padding-right: 40px;
+                transition: 1s;
+            }
+
+            nav.black ul {
+                background: rgb(48, 48, 48);
+                
+            }
+
+            nav ul li {
+                display: inline-block;
+                padding: 16px 40px;;
+            }
+
+            nav ul li a {
+                text-decoration: none;
+                color: rgb(94, 94, 94);
+                font-size: 16px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+
+            .menu-icon {
+                line-height: 60px;
+                width: 100%;
+                /* background: #000; */
+                text-align: right;
+                box-sizing: border-box;
+                padding: 15px 24px;
+                cursor: pointer;
+                color: #fff;
+                display: none;
+            }
+
+            .main-text{
+                /* text-align: center; */
+                vertical-align: center;
+                top: 40%;
+                position:absolute;
+                left: 0%;
+                width: 100%;
+
+            }
+
+            .border1{
+                /* padding: 10px; */
+                color: whitesmoke;
+                /* background-color: whitesmoke; */
+                font-size: 35px;
+                font-weight: bold;
+                color: rgb(255, 123, 0);
+            }
+            
+            .name{
+                color: rgb(255, 123, 0);
+            }
+
+            .sub-head{
+                font-size: 2.4vw;
+                color: gray;
+                font-weight: 500;
+                /* margin: 20px; */
+            }
+
+            @media(max-width: 786px) {
+
+                .logo {
+                        position: fixed;
+                        top: 0;
+                        margin-top: 16px;
+                }
+
+                nav ul {
+                        max-height: 0px;
+                        /* background: #000; */
+                        width: 200px;
+                        float: right;
+                }
+
+                nav.black ul {
+                        /* background: #000; */
+                }
+
+                .showing {
+                        max-height: 34em;
+                }
+
+                nav ul li {
+                        box-sizing: border-box;
+                        width: 100%;
+                        padding: 24px;
+                        text-align: center;
+                        overflow: visible;
+                        background-color: grey;
+                        
+                }
+
+                .menu-icon {
+                        display: block;
+                }
+
+            }
+
+            #about{
+                text-align: center;
+                padding: 10px;
+                /* border-bottom: 3px solid orange; */
+
+            }
+
+            .about-header{
+                /* text-align: center; */
+                font-weight: bold;
+                font-size: 23px;
+            }
+
+            .about-section{
+                background-color: lightgray;
+            }
+
+            .work-section{
+                background-color: rgb(44, 44, 44);
+                color: whitesmoke;
+            }
+            
+
+
+      </style>
+
+      <script>
+           $(document).ready(function() {
+            $(".menu-icon").on("click", function() {
+                  $("nav ul").toggleClass("showing");
+            });
+      });
+
+      // Scrolling Effect
+
+      $(window).on("scroll", function() {
+            if($(window).scrollTop()) {
+                  $('nav').addClass('black');
+            }
+
+            else {
+                  $('nav').removeClass('black');
+            }
+      })
+
+
+
+        var msg = document.getElementById('msg').value()
+        if (msg='done'){
+            alert('Thankyou for contacting!')
+        } 
+           
+      
+      </script>
+   </head>
+   <body>
+       <input type="text" value="{{m}}" id='msg' hidden>
+      <div class="wrapper">
+         <header>
+            <nav class=" ">
+               <div class="menu-icon">
+                  <i class="fa fa-bars fa-2x"></i>
+               </div>
+               <!-- <div class="logo">
+                  LOGO
+               </div> -->
+               <div class="menu">
+                  <ul>
+                     <li><a href="#">Home</a></li>
+                     <li><a href="#">About</a></li>
+                     <li><a href="#">Blog</a></li>
+                     <li><a href="#">Contact</a></li>
+                     <li><a href="#">Contact</a></li>
+                     <li><a href="#">Contact</a></li>
+                  </ul>
+               </div>
+            </nav>
+
+            <div class="main-text">
+                <div class="container">
+    
+                <span class="border1">Hello, I'm <span class="name animated animatedFadeInUp fadeInUp" style="animation-delay: 0.5s;">Shivesh Jha</span></span><br>
+                <span class="sub-head">I'm a Full Stack Web Developer and Data Science enthusiast</span>
+                <a href="#about1" ><p class="p-2 mt-3 button12 " style="border: 2px solid rgb(255, 123, 0) ;width: 120px;color: rgb(255, 123, 0);border-radius: 5px;;text-decoration: none;">Know more</p></a>
+                </div>
+            </div>
+         </header>
+         <!-- <div class="content">
+            <p>
+               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+            <p>
+               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+             </p>
+             <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+             </p>
+             <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+             </p>
+
+
+                
+         </div> -->
+
+         <div>
+            <!-- <h2 id="about">About Section</h2><br> -->
+            <div class="row about-section p-5" style="scroll-behavior: smooth;  ">
+                <div class="col-12 col-md-4">
+ 
+                    <!-- <img src="https://i.pinimg.com/originals/2b/c5/46/2bc5462dafc875b4542cfc9d9b7d7b45.jpg" width="90%" style="margin: 20px;">  -->
+                </div>
+                <div class="col-12 col-md-8" id='about1'>
+                    <h3 class="about-header">About</h3>
+                    <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br>
+                    <p class="context">My name is Rohan, I'm a Web Developer. Currently I'm working at Aapka Sahara Foundation as a Website Development Manager simultaneously being the Tech Head at DJLIT</p><br>
+
+
+                    <h3 class="about-header">Contact Details</h3>
+                    <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br>
+                    <p class="context">My name is Rohan, I'm a Web Developer. Currently I'm working at Aapka Sahara Foundation as a Website Development Manager simultaneously being the Tech Head at DJLIT</p>
+
+                    
+                </div>
+                <!-- <div class="col-12 col-md-4">
+                    <h3 class="about-header">Web Development</h3>
+                    
+                </div> -->
+
+            </div>
+
+            <div>
+                <!-- <h2 id="about">About Section</h2><br> -->
+                <div class="row work-section p-5">
+                    <div class="col-12 col-md-4">
+                        <center class="m-3">
+                        <h4 >Work</h4>
+                        <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br>
+                    </center>
+                        <!-- <img src="https://i.pinimg.com/originals/2b/c5/46/2bc5462dafc875b4542cfc9d9b7d7b45.jpg" width="90%" style="margin: 20px;">  -->
+                    </div>
+                    <div class="col-12 col-md-8" id='about1'>
+                       <!-- <span > <span class="about-header mb-2">Talent Serve</span><span style="margin-left: 50px;font-weight: 100;font-size: 13px;color: rgb(255, 123, 0);padding: 5px;border: 1px solid rgb(255, 123, 0);border-radius: 5px;">Internship</span></span> -->
+                       <div class="row">
+                           <div class="col-12 col-md-6">
+                               <h3 style="margin-bottom: 15px;">Talent Serve</h3>
+
+                           </div>
+                           <div class="col-12 col-md-6">
+                            <span style="font-weight: 100;font-size: 13px;color: rgb(255, 123, 0);padding: 5px;border: 1px solid rgb(255, 123, 0);border-radius: 5px;">Internship</span>
+
+                        </div>
+                       </div>
+                        <!-- <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br> -->
+                        <!-- <h6 style="font-style: italic;font-family: Verdana, Geneva, Tahoma, sans-serif;color: gray;">Product Developer</h6> -->
+                        <p class="context1" style="margin-bottom: 10px;margin-top: 20px;font-style: italic;color: gray;">Executive Band (Web Development Manager)• July 2020 - Present</p>
+                        <p style="border-bottom: 1px solid rgb(97, 97, 97);padding-bottom: 40px;">Revamped the complete website for the NGO and constantly maintained it making it SEO friendly, compatible with mobile devices and made it possible to implement new features on the website.</p><br>
+
+
+                        
+                       <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h3 style="margin-bottom: 15px;">Techinnovadors</h3>
+
+                        </div>
+                        <div class="col-12 col-md-6">
+                         <span style="font-weight: 100;font-size: 13px;color: royalblue;padding: 5px;border: 1px solid royalblue;border-radius: 5px;">Freelance</span>
+
+                     </div>
+                    </div>
+                     <!-- <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br> -->
+                     <!-- <h6 style="font-style: italic;font-family: Verdana, Geneva, Tahoma, sans-serif;color: gray;">Product Developer</h6> -->
+                     <p class="context1" style="margin-bottom: 10px;margin-top: 20px;font-style: italic;color: gray;">Executive Band (Web Development Manager)• July 2020 - Present</p>
+                     <p style="border-bottom: 1px solid rgb(97, 97, 97);padding-bottom: 40px;">Revamped the complete website for the NGO and constantly maintained it making it SEO friendly, compatible with mobile devices and made it possible to implement new features on the website.</p><br>
+
+
+                     
+                     <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h3 style="margin-bottom: 15px;">Aapka Sahara Foundation</h3>
+
+                        </div>
+                        <div class="col-12 col-md-6">
+                         <span style="font-weight: 100;font-size: 13px;color: rgb(255, 123, 0);padding: 5px;border: 1px solid rgb(255, 123, 0);border-radius: 5px;">Internship</span>
+
+                     </div>
+                    </div>
+                     <!-- <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br> -->
+                     <!-- <h6 style="font-style: italic;font-family: Verdana, Geneva, Tahoma, sans-serif;color: gray;">Product Developer</h6> -->
+                     <p class="context1" style="margin-bottom: 10px;margin-top: 20px;font-style: italic;color: gray;">Executive Band (Web Development Manager)• July 2020 - Present</p>
+                     <p style="border-bottom: 1px solid rgb(97, 97, 97);padding-bottom: 40px;">Revamped the complete website for the NGO and constantly maintained it making it SEO friendly, compatible with mobile devices and made it possible to implement new features on the website.</p><br>
+
+                     
+                     <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h3 style="margin-bottom: 15px;">Ace Proton Communications</h3>
+
+                        </div>
+                        <div class="col-12 col-md-6">
+                         <span style="font-weight: 100;font-size: 13px;color: rgb(255, 123, 0);padding: 5px;border: 1px solid rgb(255, 123, 0);border-radius: 5px;">Internship</span>
+
+                     </div>
+                    </div>
+                     <!-- <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br> -->
+                     <!-- <h6 style="font-style: italic;font-family: Verdana, Geneva, Tahoma, sans-serif;color: gray;">Product Developer</h6> -->
+                     <p class="context1" style="margin-bottom: 10px;margin-top: 20px;font-style: italic;color: gray;">Executive Band (Web Development Manager)• July 2020 - Present</p>
+                     <p style="border-bottom: 1px solid rgb(97, 97, 97);padding-bottom: 40px;">Revamped the complete website for the NGO and constantly maintained it making it SEO friendly, compatible with mobile devices and made it possible to implement new features on the website.</p><br>
+    
+    
+                          
+                        
+                    </div>
+                    <!-- <div class="col-12 col-md-4">
+                        <h3 class="about-header">Web Development</h3>
+                        
+                    </div> -->
+    
+                </div>
+                </div>
+
+                <div style="background-color: whitesmoke;">
+                    <br>
+                    <center><h3>Check out my work</h3></center>
+                    <p style="text-align: center;color: rgb(133, 133, 133);">Worked on 10+ sites</p>
+                    <div class="row">
+                        <div class="col-md-3 col-12">
+                           <center> <div class="flip-card p-4">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <img class="img-fluid" style="height: 100%;" src="https://www.cdc.gov/coronavirus/2019-ncov/images/vaccines/COVID-Vaccines2.png" alt="Avatar" >
+                                  </div>
+                                  <div class="flip-card-back p-3 pt-4 " >
+                                    <h3 style="font-weight: bold;">TraCOR</h3> 
+                                    <center><div style="border-bottom: 2px solid orange;width: 80px;"></div></center><br>
+                                    <p>Covid Stats from around the globe</p> 
+                                    <a href="https://tracor.herokuapp.com/" target="_blank">Visit here</a>
+                                  </div>
+                                </div>
+                              </div></center>
+
+                        </div>
+                        <div class="col-md-3 col-12">
+                            <div class="flip-card p-4">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <img class="img-fluid rounded-circle" style="height: 100%;" src="https://conceptdraw.com/a3206c3/p11/preview/640/pict--interview-hr-steps---vector-stencils-library.png--diagram-flowchart-example.png" alt="Avatar" >
+                                  </div>
+                                  <div class="flip-card-back p-3 pt-4 " >
+                                    <h2 style="font-weight: bold;">TraCOR</h2> 
+                                    <center><div style="border-bottom: 2px solid orange;width: 80px;"></div></center><br>
+                                    <p>Covid Stats from around the globe</p> 
+                                    <a href="https://tracor.herokuapp.com/" target="_blank">Visit here</a>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                        </div>
+                        <div class="col-md-3 col-12">
+                            <div class="flip-card p-4">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <img class="img-fluid rounded-circle" style="height: 100%;" src="https://img.freepik.com/free-vector/warehouse-logistics-isometric-design_1284-18761.jpg?size=338&ext=jpg" alt="Avatar" >
+                                  </div>
+                                  <div class="flip-card-back p-3 pt-4 " >
+                                    <h2 style="font-weight: bold;">TraCOR</h2> 
+                                    <center><div style="border-bottom: 2px solid orange;width: 80px;"></div></center><br>
+                                    <p>Covid Stats from around the globe</p> 
+                                    <a href="https://tracor.herokuapp.com/" target="_blank">Visit here</a>
+                                  </div>
+                                </div>
+                              </div>
+
+                            
+                        </div>
+                        <div class="col-md-3 col-12">
+                            <div class="flip-card p-4">
+                                <div class="flip-card-inner">
+                                  <div class="flip-card-front">
+                                    <img class="img-fluid rounded-circle" style="height: 100%;" src="https://media.istockphoto.com/vectors/culinary-recipe-card-with-cook-cap-and-apron-vector-id1097078866?b=1&k=6&m=1097078866&s=612x612&w=0&h=U6JjSpRWbWTqJNbMGHfmRe0foA9Ap-XSXDa8tnuUOqs=" alt="Avatar" >
+                                  </div>
+                                  <div class="flip-card-back p-3 pt-4 " >
+                                    <h2 style="font-weight: bold;">TraCOR</h2> 
+                                    <center><div style="border-bottom: 2px solid orange;width: 80px;"></div></center><br>
+                                    <p>Covid Stats from around the globe</p> 
+                                    <a href="https://tracor.herokuapp.com/" target="_blank">Visit here</a>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                        </div>
+
+                        
+                       
+                    </div><br>
+                    <p style="text-align: center;color: rgb(133, 133, 133);">More on my <a href="https://github.com/ShiveshJha12?tab=repositories" target="_blank">GITHUB</a></p><br>
+
+                </div>
+                <div class="contact-section" style="background-color: rgb(59, 59, 59);">
+                    <din class="row">
+                        <div class="col-12 col-sm-6">
+                            <div class="p-4" style="color: lightgray;;margin: 20px;">
+                            <h2 >Contact Me</h2>
+                            <div style="border-bottom: 4px solid rgb(255, 123, 0); width: 60px;"></div><br>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                               
+                                  
+                                      <div class="form-group"><label for="email"></label>
+                                            <input style="background-color: lightgray;" class="form-control" id="email" type="text" placeholder="Email" name="email">
+                                      </div>
+                                      <div class="form-group"><label for="number1"></label>
+                                            <input class="form-control" id="number1" type="number" placeholder="Contact no." name="number1">
+                                        
+                                      </div>
+                                      <div class="form-group"><label for="message"></label>
+                                        <input class="form-control" id="message" type="text" placeholder="Your message" name="message">
+                                    
+                                        </div><br>
+                                      <button type="submit" class="btn" style="background-color: rgb(255, 123, 0);color: lightgray;">SUBMIT</button>
+                                        
+                                    
+                                    </form>
+                            </div>
+                        </div>
+                    </din>
+                </div>
+      </div>
+      </div>
+
+      
+   </body>
+</html>
