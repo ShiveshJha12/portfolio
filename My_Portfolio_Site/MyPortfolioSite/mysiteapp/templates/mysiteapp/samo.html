@@ -171,6 +171,7 @@
                 height: 100vh;
                 background: url(https://cdn.dribbble.com/users/370759/screenshots/1796042/untitled-1.gif) no-repeat 50% 50%;
                 background-size: cover;
+                /* opacity: 0.9; */
             }
 
             .content {
@@ -333,6 +334,26 @@
                 background-color: rgb(44, 44, 44);
                 color: whitesmoke;
             }
+            .ch::before {
+            content: "Geeks";
+            animation: animate infinite 6s;
+            padding-left: 10px;
+        }
+  
+        @keyframes animate {
+  
+            0% {
+                content: "Web Development";
+            }
+  
+            50% {
+                content: "ML and Data Science ";
+            }
+  
+            75% {
+                content: "Programming";
+            }
+        }
             
 
 
@@ -394,8 +415,9 @@
                 <div class="container">
     
                 <span class="border1">Hello, I'm <span class="name animated animatedFadeInUp fadeInUp" style="animation-delay: 0.5s;">Shivesh Jha</span></span><br>
+                <h4 style="color: whitesmoke;">I'm into<span  class="ch"> </span></h4>
                 
-                <span class="sub-head animated fadeInLeft fadeInLeft" style="animation-delay: 1s;">I'm a Full Stack Web Developer and Data Science enthusiast</span>
+                <!-- <span class="sub-head animated fadeInLeft fadeInLeft" style="animation-delay: 1s;">I'm a Full Stack Web Developer and Data Science enthusiast</span> -->
                 <a href="#work" ><p class="p-2 mt-3 button12 " style="border: 2px solid rgb(255, 123, 0) ;width: 120px;color: rgb(255, 123, 0);border-radius: 5px;;text-decoration: none;">Know more</p></a>
                 </div><br><br><br>
                 <center><a href="#about1"><i class="fas fa-chevron-circle-down fa-3x" style="color: rgb(255, 123, 0);"></i></a></center>
